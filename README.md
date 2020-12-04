@@ -1,6 +1,6 @@
-# Music
+# Music Pelican plugin
 
-Use Music to add a musical track or an album of tracks to an article. Music tracks are copied from an organized bucket of albums (as directories) you want to relate to in your pages.
+Use Music to add a musical track or an album of tracks to an article with pelican. Music tracks are copied from an organized bucket of albums (as directories) you want to relate to in your pages.
 
 ## How to install and configure
 
