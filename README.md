@@ -1,31 +1,38 @@
 # Music Pelican plugin
 
-Use Music to add a musical track or an album of tracks to an article with pelican. Music tracks are copied from an organized bucket of albums (as directories) you want to relate to in your pages.
+Use `music` to add a musical track or an album to an article with pelican. Music tracks are copied from an organized bucket of albums (as directories) you want to relate to in your pages.
+
+## Demo
+
+You can see a demo pelican generated article here:
+http://noise.rocks/~ben/parler.html
 
 ## How to install and configure
 
 The plug-in requires `Tagpy`: a Python library for manipulating audio tags, which installation is outside the scope of this document.
 
-The plug-in scans the referred tracks, and generates html presentation for albums and tracks, based on the following configuration and default values:
+The plug-in scans the referred tracks, and generates html presentation for albums and tracks with audio, based on the following configuration:
 
-`MUSIC_LIBRARY = "~/Music"`
-:	Absolute path to the folder where the original music tracks are kept, optionally organized in sub-folders (mandatory if you publish albums).
+`MUSIC_LIBRARY = "~/your_music_directory"`
+:	Absolute path to the folder where the original music tracks are kept, optionally organized in sub-folders (mandatory if you publish album).
 
-`MUSIC_COVER = (filename)`
+`MUSIC_COVER = cover.jpg`
 :	For music in albums or playlist folders, album cover image filename for the album or the playlist. The cover file would typically be a generic filename such as *cover.jpg*.
 
 The plug-in automatically creates two objects types that you can use in your template for each album (or playlist) folder, taking information from each audio track inside it and publishes the audio tracks folders to the following output folder:
 
+```
     ./output/music
+```
 
-**WARNING:** The plug-in can take hours to scan 40,000 tracks, therefore, album and tracks information pages are only done once. Clean the output folders to regenerate the pages again.
+The plug-in creates tag cache files in the `MUSIC_LIBARY` directory, therefore, album and tracks information are only done once. If you want to regenerate tags, just remove the *.tags* files from your music library.
 
 ## How to use
 
-If you publish albums or playlists (and you certainy may want to), you must maintain an organized library of audio tracks sorted by their filename somewhere on disk, using folders to *group tracks* of the same album or same playlist (or topic). The default root path `~/Music` might be convenient for Mac OS X users.
+If you publish albums or playlists (and you certainy may want to), you must maintain an organized library of audio tracks **sorted by their filename** somewhere on disk, using folders to *group tracks* of the same album or same playlist (or topic).
 
-* To get a single object `music_album` useable in your template, add the metadata field `album: {music}/folder{Optional Name}` to an article. This will scan for the designated folders. An article *must not* refer to multiple albums.
-* To get a single object `music_track` useable in your template, add the metadata field `track: {music}/folder/track.ogg` to an article. This will scan for the deigned audio file. You *must not* refer to multiple tracks. Use an `album:` header instead to refer to multiple tracks stored and sorted by filename in the designed folder.
+* To get a single object `music_album` usable in your template, add the metadata field `album: {music}/folder{Optional Name}` to an article. This will scan for the designated folder. An article **must not** refer to multiple albums.
+* To get a single object `music_track` usable in your template, add the metadata field `track: {music}/folder/track.ogg` to an article. This will scan for the designated audio file. You **must not** refer to multiple tracks. Use an `album:` header instead to refer to multiple tracks sorted by filename in the designed folder.
 
 Here is an example Markdown article that shows all use cases:
 
@@ -37,7 +44,7 @@ Here is an example Markdown article that shows all use cases:
 	[Aria]({music}/firstalbum/aria.ogg).
 	[Sonata]({music}/secondone/sonata.ogg).
 
-    your Jinja template can display the full album, and the specific track, all with an HTML5 <audio> markup.
+    your Jinja template can display the full album and cover, and the specific track, all with HTML5 <audio> markups (see Demo).
 
 ## How to change the Jinja templates
 
