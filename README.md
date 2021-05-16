@@ -9,7 +9,7 @@ http://noise.rocks/~ben/parler.html
 
 ## How to install and configure
 
-The plug-in requires `Tagpy`: a Python library for manipulating audio tags, which installation is outside the scope of this document.
+The plug-in requires `taglib`: a Python library for manipulating audio tags, which installation is outside the scope of this document.
 
 The plug-in scans the referred tracks, and generates html presentation for albums and tracks with audio, based on the following configuration:
 
