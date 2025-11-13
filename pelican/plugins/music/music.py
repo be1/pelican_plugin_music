@@ -179,8 +179,8 @@ def check_tag(tag):
         'artist': tag.get('ARTIST', ['unknown'])[0],
         'album': tag.get('ALBUM', ['unknown'])[0],
         'title': tag.get('TITLE', ['unknown'])[0],
-        'track': tag.get('TRACK', ['0'])[0],
-        'year': tag.get('YEAR', ['1970'])[0] }
+        'track': tag.get('TRACKNUMBER', ['0'])[0],
+        'year': tag.get('DATE', ['1970'])[0] }
 
 #
 # make .tags json file from audio file :DONE:
