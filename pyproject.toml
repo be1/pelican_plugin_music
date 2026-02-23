@@ -34,6 +34,3 @@ dependencies = [
 "Issue Tracker" = "https://github.com/be1/pelican_plugin_music/issues"
 "Changelog" = "https://github.com/be1/pelican_plugin_music/commits/main/"
 "Funding" = "https://paypal.me/brouits"
-
-includes = ["pelican/"]
-excludes = ["**/.DS_Store"]
