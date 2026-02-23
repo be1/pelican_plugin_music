@@ -1,5 +1,5 @@
 [project]
-name = "pelican-music"
+name = "pelican_plugin_music"
 version = "0.1"
 description = "Music plugin for Pelican"
 authors = [{name = "Benoît Rouits", email = "brouits@free.fr"}]
