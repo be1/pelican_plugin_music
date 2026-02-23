@@ -5,7 +5,7 @@ description = "Music plugin for Pelican"
 authors = [{name = "Benoît Rouits", email = "brouits@free.fr"}]
 license = {text = "AGPL-3.0"}
 readme = "README.md"
-keywords = ["pelican", "plugin", "music", "composer"]
+keywords = ["pelican", "plugin", "music", "musician"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Console",
