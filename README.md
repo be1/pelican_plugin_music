@@ -5,7 +5,7 @@ Use `music` to add a musical track or an album to an article with pelican. Music
 ## Demo
 
 You can see a demo pelican generated article here:
-http://noise.rocks/~ben/parler.html
+http://noise.rocks/~ben/joy-of-zyn.html
 
 ## How to install and configure
 
