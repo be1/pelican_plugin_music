@@ -27,18 +27,20 @@ class TestMusic(unittest.TestCase):
         cls.settings['SITEURL'] = 'http://getpelican.com/sub'
         cls.settings['AUTHOR'] = 'Bob Anonymous'
         music.initialized(cls)
+
         context = cls.settings.copy()
         context['generated_content'] = dict()
         context['static_links'] = set()
+        context['static_content'] = dict()
         cls.generator = ArticlesGenerator(
             context=context, settings=cls.settings,
             path=cls.settings['PATH'], theme=cls.settings['THEME'],
-            output_path=cls.settings['OUTPUT_PATH'])
+            output_path=cls.settings['OUTPUT_PATH'],
+        )
         music.register()
+        music.initialized(cls.generator)
         cls.generator.generate_context()
-        for article in cls.generator.articles:
-            music.detect_track(cls.generator, article)
-            music.detect_album(cls.generator, article)
+        music.on_all_generators_finalized([cls.generator])
 
     @classmethod
     def tearDownClass(cls):
@@ -65,15 +67,12 @@ class TestMusic(unittest.TestCase):
         return None
 
     def test_music_article_track(self):
-        self.assertEqual(self.get_article('music').music_track,
-                         ('best.ogg'))
+        self.assertEqual(self.get_article('music').music_track['path'], ('music/aplaylist/best.ogg'))
 
     def test_music_article_album(self):
-        music_album = self.get_article('filename').music_album[0][1]
-        self.assertEqual(music_album[0],
-                         ('best.ogg'))
-        self.assertEqual(music_album[1],
-                         ('mem.ogg'))
+        music_album = self.get_article('music').music_album
+        self.assertEqual(music_album['tracks'][0]['path'], ('music/aplaylist/best.ogg'))
+        self.assertEqual(music_album['tracks'][1]['path'], ('music/aplaylist/mem.ogg'))
 
 if __name__ == '__main__':
     unittest.main()
