@@ -11,7 +11,7 @@ http://noise.rocks/~ben/joy-of-zyn.html
 
 The plug-in requires `taglib`: a Python library for manipulating audio tags, which installation is outside the scope of this document.
 
-The plug-in scans the referred tracks, and generates html presentation for albums and tracks with audio, based on the following configuration:
+The plug-in scans the referred tracks, and generates usable tags from tracks with audio, based on the following configuration:
 
 `MUSIC_LIBRARY = "~/your_music_directory"`
 :	Absolute path to the folder where the original music tracks are kept, optionally organized in sub-folders (mandatory if you publish album).
@@ -19,7 +19,7 @@ The plug-in scans the referred tracks, and generates html presentation for album
 `MUSIC_COVER = cover.jpg`
 :	For music in albums or playlist folders, album cover image filename for the album or the playlist. The cover file would typically be a generic filename such as *cover.jpg*.
 
-The plug-in automatically creates two objects types that you can use in your template for each album (or playlist) folder, taking information from each audio track inside it and publishes the audio tracks folders to the following output folder:
+The plug-in automatically publishes the tracks or albums (as directories) to the following output folder:
 
 ```
     ./output/music
