@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 
 MUSIC_ROOT_OUTPUT = 'music'
 def initialized(pelican):
-    p = os.path.expanduser('~/Music')
+    p = os.path.expanduser('~/MyMusic')
 
     DEFAULT_CONFIG.setdefault('MUSIC_LIBRARY', p)
     DEFAULT_CONFIG.setdefault('MUSIC_COVER', 'cover.jpg')
